@@ -8,6 +8,7 @@ use App\Rules\Captcha;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use LangleyFoxall\LaravelNISTPasswordRules\PasswordRules;
+use Illuminate\Validation\ValidationException;
 
 /**
  * Class LoginController.
@@ -110,5 +111,27 @@ class LoginController extends Controller
         if (config('boilerplate.access.user.single_login')) {
             auth()->logoutOtherDevices($request->password);
         }
+    }
+
+    /**
+     * Get the failed login response instance.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     *
+     * @throws \Illuminate\Validation\ValidationException
+     */
+    protected function sendFailedLoginResponse(Request $request)
+    {
+        $errors = [$this->username() => ["This email does not seem to exist. <a href='" . route('frontend.auth.register') . "'>Signup</a> or <a href='" . route('frontend.auth.password.request') . "'>reset your password</a>"]];
+
+         // Load user from database
+        $user = \App\Domains\Auth\Models\User::where($this->username(), $request->{$this->username()})->first();
+    
+        if ($user && !\Hash::check($request->password, $user->password)) {
+            $errors = ['password' => ["That’s not the right password. <a href='" . route('frontend.auth.password.request') . "'>Forgot Password</a>"]];
+        }
+
+        throw ValidationException::withMessages($errors);
     }
 }

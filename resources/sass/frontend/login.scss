@@ -1,0 +1,191 @@
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+body {
+    background: #F9F9FB;
+    color: #425a70;
+    font-family: SF UI Text,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: -.05px;
+}
+
+.layout-login {
+    margin-top: 80px;
+}
+
+.form-container {
+    background: #FFFFFF;
+    border-radius: 3px;
+    box-shadow: 0 0px 1px rgba(67, 90, 111, 0.47);
+    padding: 32px;
+    color: rgb(35, 67, 97);
+    width: 42%;
+
+    .header {
+        padding-top: 2rem;
+        margin-bottom: 2rem;
+        position: relative;
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            left: calc(50% - 45px);
+            top: -77px;
+            width: 90px;
+            height: 90px;
+            transform: rotate(45deg) scale(.7);
+            border-color: transparent #e4e7eb #e4e7eb transparent;
+            border-style: solid;
+            border-width: 1px;
+            border-radius: 100%;
+            background: #f9f9fb;
+
+            img {
+                height: 56px;
+                transform: rotate(-45deg) translateX(1px);
+            }
+        }
+    }
+
+    label {
+        color: rgb(35, 67, 97);
+        font-weight: 600;
+    }
+
+    input {
+        color: rgb(66, 90, 112);
+        box-shadow: 0 0px 1px rgba(67, 90, 111, 0.3);
+        outline: none;
+    }
+
+    .alert-container {
+        margin-bottom: 20px;
+        box-sizing: border-box;
+        box-shadow: 0 0px 1px rgba(67, 90, 111, 0.47);
+
+        .alert-body {
+            padding: 15px;
+            background: #FFFFFF;
+            font-size: 14px;
+            color: rgb(35, 67, 97);
+            display: flex;
+            position: relative;
+
+            &:before {
+                content: "";
+                width: 3px;
+                height: 100%;
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                background-color: rgb(217, 130, 43);
+            }
+
+            .left {
+                align-items: flex-start;
+                -webkit-box-align: start;
+                margin-right: 16px;
+                margin-left: 2px;
+                margin-top: -1px;
+            }
+
+            .right {
+                flex: 1 1 0%;
+
+                .text-message {
+                    margin: 0;
+                }
+            }
+
+            svg {
+                fill: rgb(217, 130, 43);
+                height: 16px;
+                width: 16px;
+            }
+
+            h4 {
+                font-size: 14px;
+                letter-spacing: -0.05px;
+                line-height: 1;
+                font-weight: 500;
+            }
+
+            a {
+                color: rgb(16, 112, 202);
+                text-decoration: underline;
+                line-height: 20px;
+                font-weight: 400;
+            }
+        }
+    }
+
+    h1 {
+        color: #234361;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 24px;
+        letter-spacing: -0.07px;
+    }
+
+    a {
+        color: rgb(16, 112, 202);
+        line-height: 20px;
+        text-decoration: underline;
+
+        svg {
+            width: 16px;
+            height: 16px;
+            fill: rgb(16, 112, 202);
+        }
+    }
+
+    .footer {
+        margin-top: 32px;
+        font-size: 14px;
+
+        span {
+            color: rgb(66, 90, 112);
+            line-height: 20px;
+            letter-spacing: -0.05px;
+        }
+
+        .small {
+            margin-top: 32px;
+        }
+
+        small {
+            color: rgb(102, 120, 138);
+            letter-spacing: 0px;
+            line-height: 16px;
+            font-size: 12px;
+            font-weight: 400;
+
+            a {
+                color: rgb(47, 64, 80);
+            }
+        }
+    }
+}
+
+.btn-blue {
+    background-image: linear-gradient(rgb(7, 136, 222), rgb(17, 106, 184));
+    box-shadow: rgba(67, 90, 111, 0.3) 0px 0px 0px 1px inset, rgba(67, 90, 111, 0.06) 0px -1px 1px 0px inset;
+    padding-right: 16px;
+    padding-left: 16px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: white;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 14px;
+    letter-spacing: -0.05px;
+
+    &:hover {
+        color: #FFF;
+        background-image: linear-gradient(rgb(17, 106, 184), rgb(17, 106, 184));
+    }
+}
